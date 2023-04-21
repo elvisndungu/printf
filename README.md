@@ -2,7 +2,7 @@
 
 This is a group project where we are expected to create our own custom `printf()` function in C programming language i.e `_printf`. 
 
-The objective of this project is to deepen our understanding of the C programming language, especially the use of pointers and string manipulation.
+The objective of this project is to deepen our understanding of the C programming language, especially wit the use of pointers and string manipulation.
 
 
 ### We are allowed to use the following authorized functions and macros:
