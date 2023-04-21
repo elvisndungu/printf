@@ -5,6 +5,12 @@ This is a group project where we are expected to create our own custom `printf()
 The objective of this project is to deepen our understanding of the C programming language, especially wit the use of pointers and string manipulation.
 
 
+## Wahat is Printf??
+`printf()` is the C language function to do formatted printing as seen in other languages like python eg `print("Watashi wa Kira Yoshikage")`.
+
+
+
+
 ### We are allowed to use the following authorized functions and macros:
 
 1.  `write`
