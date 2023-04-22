@@ -23,6 +23,19 @@ The objective of this project is to deepen our understanding of the C programmin
 -   `va_copy`
 -   `va_arg`
 
+------------
+#### Files contained in this repository
+------------
+
+|Name                |Information                        |Relevant Files                         
+|----------------|-------------------------------|-----------------------------|
+|`main.h`	| Header file with the data type struct, standard libraries and custom prototypes.| `*.c compilation` |
+|`_printf.c`| Main printf function file (lets call it the Mother File). Calls other functions.|`printf_(name of var).c file` |
+| `_putchar.c` | Custom putchar function. | `None` |
+
+
+
+
 ## WORK IN PROGRESS....
 
 
