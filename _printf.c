@@ -9,9 +9,12 @@
 
 int _printf(const char *format, ...)
 {
-	int str_len = 0;
+	int str_len;
 
 	va_list args;
+	
+	str_len	= 0;
+
 	va_start(args, format);
 
 	while (*format != '\0')
@@ -52,8 +55,8 @@ int _printf(const char *format, ...)
         }
 
 	va_end(args);
-	return str_len;
 }
-
+	return str_len;
 	
 }
+

@@ -8,12 +8,13 @@ int printf_string(va_list args)
 
 {
 	const char *str = va_arg(args, const char *);
-    
+	int count;
+
 	if (str == NULL)
 {
 	return fputs("(null)", stdout);
 }
-	int count = 0;
+	count = 0;
     
 	while (*str != '\0')
 {
