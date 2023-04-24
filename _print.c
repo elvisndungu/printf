@@ -28,7 +28,7 @@ int _printf(const char *format, ...)
     convert_match match[] = {
 		{"%s", printf_string},
 		{"%c", printf_char}
-    }
+    };
     i = 0; 
     len = 0;
     
