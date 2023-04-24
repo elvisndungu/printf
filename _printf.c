@@ -20,9 +20,7 @@ typedef struct convert_match
 
 int _printf(const char *format, ...)
 {
-    int i;
-    int j;
-    int len;
+    int i, j, len;
     
     va_list args;
     convert_match match[] = {
@@ -39,22 +37,21 @@ int _printf(const char *format, ...)
 	Here:
 	while (format[i] != '\0')
 	{
-		j = 0;
-		while (j < 13)
+		j = 13;
+		while (j >= 0)
 		{
-			if (_strcmp(match[j].id, &format[i]) == 0)
+			if (match[j].id[0] == format[i] && match[j].id[1] == format[i + 1])
 			{
 				len += match[j].f(args);
-				i += _strlen(match[j].id);
+				i = i + 2;
 				goto Here;
 			}
-			j++;
+			j--;
 		}
 		_putchar(format[i]);
 		len++;
 		i++;
 	}
-    
 	va_end(args);
 	return (len);
 }
