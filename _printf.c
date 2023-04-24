@@ -20,25 +20,28 @@ typedef struct convert_match
 
 int _printf(const char *format, ...)
 {
-    int i, j, len;
-    
-    va_list args;
-    convert_match match[] = {
+	int i, j, len;  
+	va_list args;
+	int num_matches;
+
+    	convert_match match[] = {
 		{"%s", printf_string},
 		{"%c", printf_char}
     };
-    i = 0; 
-    len = 0;
-    
-    va_start(args, format);
+
+	num_matches = sizeof(match) / sizeof(match[0]);
+	i = 0;
+	len = 0;
+
+	va_start(args, format);
 	if (format == NULL || (format[0] == '%' && format[1] == '\0'))
 		return (-1);
 	
 	Here:
 	while (format[i] != '\0')
 	{
-		j = 13;
-		while (j >= 0)
+
+		while (j < num_matches)
 		{
 			if (match[j].id[0] == format[i] && match[j].id[1] == format[i + 1])
 			{
@@ -46,7 +49,7 @@ int _printf(const char *format, ...)
 				i = i + 2;
 				goto Here;
 			}
-			j--;
+			j++;
 		}
 		_putchar(format[i]);
 		len++;
