@@ -52,21 +52,6 @@ int _printf(const char *format, ...)
 			}
 			j++;
 		}
-<<<<<<< HEAD
-	
-	switch (format[i])
-{
-	case '%':
-        	_putchar('%');
-        	len++;
-        	break;
-    	default:
-        	_putchar(format[i]);
-        	len++;
-        	break;
-}
-		va_end(args);
-=======
 		switch (format[i])
 		{
 			case '%':
@@ -83,6 +68,5 @@ int _printf(const char *format, ...)
 		i++;
 	}
 	va_end(args);
->>>>>>> 4502b3760444da60a16dde0d4f18e46485a16a38
 	return (len);
 }
