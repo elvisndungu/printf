@@ -22,7 +22,6 @@ int _printf(const char *format, ...)
 {
 	int i = 0, j, len = 0; 
 	va_list args;
-	int num_matches;
 
     	convert_match match[] = {
 		{"%s", printf_string}, {"%c", printf_char},
