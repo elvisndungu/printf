@@ -3,7 +3,7 @@
 #include <string.h>
 
 /**
- * _printf - is a function that selects the correct function to print.
+ * _printf - Mother Function Calls other functions.
  * @format: identifier to look for.
  * Return: the length of the string.
  */
