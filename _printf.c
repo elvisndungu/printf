@@ -1,55 +1,61 @@
 #include "main.h"
-#include <stdarg.h>
+#include <stdlib.h>
+#include <string.h>
 
 /**
- * struct convert_match - structure for conversion matching
- * @id: identifier to match
- * @f: conversion function
+ * _printf - is a function that selects the correct function to print.
+ * @format: identifier to look for.
+ * Return: the length of the string.
  */
-typedef struct convert_match
+int _printf(const char * const format, ...)
 {
-	char *id;
-	int (*f)(va_list);
-} convert_match;
+    typedef struct {
+        const char* id;
+        int (*f)();
+    } convert_match;
 
-/**
- * _printf - mother function that will pick the correct function
- * @format: identifier to look for
- * Return: the len of the string
- */
-
-int _printf(const char *format, ...)
-{
-	int i = 0, j, len = 0; 
-	va_list args;
-
-    	convert_match match[] = {
-		{"%s", printf_string}, {"%c", printf_char},
-		{"%%", printf_percent}
+    static const convert_match m[] = {
+            {"%s", printf_string}, {"%c", printf_char},
+            {"%%", printf_percent}
     };
+    static const int m_len = sizeof(m) / sizeof(m[0]);
 
-	va_start(args, format);
-	if (format == NULL || (format[0] == '%' && format[1] == '\0'))
-		return (-1);
-	
-	Here:
-	while (format[i] != '\0')
-	{
-		j = 13;
-		while (j >= 0)
-		{
-			if (match[j].id[0] == format[i] && match[j].id[1] == format[i + 1])
-			{
-				len += match[j].f(args);
-				i = i + 2;
-				goto Here;
-			}
-			j--;
-		}
-		_putchar(format[i]);
-		len++;
-		i++;
-	}
-	va_end(args);
-	return (len);
+    va_list args;
+    int i = 0, len = 0;
+
+    va_start(args, format);
+    if (format == NULL || (format[0] == '%' && format[1] == '\0'))
+        return (-1);
+
+    while (format[i] != '\0')
+    {
+        if (format[i] == '%')
+        {
+            int j, found = 0;
+            for (j = 0; j < m_len; j++)
+            {
+                if (strncmp(m[j].id, format + i, strlen(m[j].id)) == 0)
+                {
+                    len += m[j].f(args);
+                    i += strlen(m[j].id);
+                    found = 1;
+                    break;
+                }
+            }
+            if (!found)
+            {
+                _putchar(format[i]);
+                len++;
+                i++;
+            }
+        }
+        else
+        {
+            _putchar(format[i]);
+            len++;
+            i++;
+        }
+    }
+    va_end(args);
+    return (len);
 }
