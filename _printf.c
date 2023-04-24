@@ -53,17 +53,17 @@ int _printf(const char *format, ...)
 			j++;
 		}
 		switch (format[i])
-        {
-            case '%':
-                _putchar('%');
-                len++;
-                break;
-            default:
-                _putchar('%');
-                _putchar(format[i]);
-                len += 2;
-                return (-1);
-        }
+		{
+			case '%':
+				_putchar('%');
+				len++;
+				break;
+			default:
+				_putchar('%');
+				_putchar(format[i]);
+				len += 2;
+				return (-1);
+		}
 		len++;
 		i++;
 	}
