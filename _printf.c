@@ -28,9 +28,6 @@ int _printf(const char *format, ...)
 		{"%%", printf_percent}
     };
 
-	num_matches = sizeof(match) / sizeof(match[0]);
-	
-
 	va_start(args, format);
 	if (format == NULL || (format[0] == '%' && format[1] == '\0'))
 		return (-1);
