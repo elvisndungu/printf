@@ -59,7 +59,6 @@ int _printf(const char *format, ...)
 				len++;
 				break;
 			default:
-				_putchar('%');
 				_putchar(format[i]);
 				len += 2;
 				return (-1);
