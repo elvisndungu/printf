@@ -53,10 +53,13 @@ int _printf(const char *format, ...)
             str_len++;
             _putchar(*format);
         }
-
-	va_end(args);
+	
+	format++;
 }
-	return str_len;
+	va_end(args);	
+	_putchar('\n');
+
+	return str_len + 1;
 	
 }
 
