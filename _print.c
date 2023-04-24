@@ -20,7 +20,9 @@ typedef struct convert_match
 
 int _printf(const char *format, ...)
 {
-    int i, j, len;
+    int i;
+    int j;
+    int len;
     
     va_list args;
     convert_match match[] = {
