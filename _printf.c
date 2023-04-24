@@ -41,6 +41,7 @@ int _printf(const char *format, ...)
 	while (format[i] != '\0')
 	{
 
+        j = 0;
 		while (j < num_matches)
 		{
 			if (match[j].id[0] == format[i] && match[j].id[1] == format[i + 1])
@@ -51,7 +52,18 @@ int _printf(const char *format, ...)
 			}
 			j++;
 		}
-		_putchar(format[i]);
+		switch (format[i])
+        {
+            case '%':
+                _putchar('%');
+                len++;
+                break;
+            default:
+                _putchar('%');
+                _putchar(format[i]);
+                len += 2;
+                return (-1);
+        }
 		len++;
 		i++;
 	}
