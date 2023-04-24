@@ -31,6 +31,8 @@ The objective of this project is to deepen our understanding of the C programmin
 |----------------|-------------------------------|-----------------------------|
 |`main.h`	| Header file with the data type struct, standard libraries and custom prototypes.| `*.c compilation` |
 |`_printf.c`| Main printf function file (lets call it the Mother File). Calls other functions.|`printf_(name of var).c file` |
+|`printf_char.c`| Prints Char|... |
+|`printf_string.c`| Prints String|... |
 | `_putchar.c` | Custom putchar function. | `None` |
 
 
