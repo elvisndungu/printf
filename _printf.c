@@ -25,8 +25,8 @@ int _printf(const char *format, ...)
 	int num_matches;
 
     	convert_match match[] = {
-		{"%s", printf_string},
-		{"%c", printf_char}
+		{"%s", printf_string}, {"%c", printf_char},
+		{"%%", printf_percent}
     };
 
 	num_matches = sizeof(match) / sizeof(match[0]);
