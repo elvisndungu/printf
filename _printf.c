@@ -52,6 +52,7 @@ int _printf(const char *format, ...)
 			}
 			j++;
 		}
+<<<<<<< HEAD
 	
 	switch (format[i])
 {
@@ -65,5 +66,23 @@ int _printf(const char *format, ...)
         	break;
 }
 		va_end(args);
+=======
+		switch (format[i])
+		{
+			case '%':
+				_putchar('%');
+				len++;
+				break;
+			default:
+				_putchar('%');
+				_putchar(format[i]);
+				len += 2;
+				return (-1);
+		}
+		len++;
+		i++;
+	}
+	va_end(args);
+>>>>>>> 4502b3760444da60a16dde0d4f18e46485a16a38
 	return (len);
 }
