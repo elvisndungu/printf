@@ -1,3 +1,4 @@
+#include "main.h"
 /**
  * print_integer - prints an integer to stdout
  * @args: the va_list containing the integer to print

@@ -16,7 +16,8 @@ int _printf(const char * const format, ...)
 
     static const match_maker match[] = {
             {"%s", printf_string}, {"%c", printf_char},
-            {"%%", printf_percent}
+            {"%%", printf_percent}, {"%d", print_integer},
+            {"%i", print_integer},
     };
     static const int m_len = sizeof(match) / sizeof(match[0]);
 
