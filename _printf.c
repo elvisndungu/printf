@@ -57,6 +57,7 @@ int _printf(const char * const format, ...)
 			i++;
 		}
 	}
+
 	va_end(args);
 	return (len);
 }
