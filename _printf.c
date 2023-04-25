@@ -2,15 +2,6 @@
 #include <stdlib.h>
 #include <string.h>
 
-
-
-void outputChar(const char * const format, int len, int i)
-{
-    _putchar(format[i]);
-    len++;
-    i++;
-}
-
 /**
  * _printf - Mother Function Calls other functions.
  * @format: identifier to look for.
@@ -30,7 +21,6 @@ int _printf(const char * const format, ...)
 	va_start(args, format);
 	if (format == NULL || (format[0] == '%' && format[1] == '\0'))
 		return (-1);
-
 	while (format[i] != '\0')
 	{
 		if (format[i] == '%')
@@ -47,17 +37,18 @@ int _printf(const char * const format, ...)
 			}
 			if (!found)
 			{
-				outputChar(format, len, i);
+				_putchar(format[i]);
+				len++;
+				i++;
 			}
 		}
 		else
 		{
-			
-			outputChar(format, len, i);
+			_putchar(format[i]);
+			len++;
+			i++;
 		}
 	}
 	va_end(args);
 	return (len);
 }
-
-
