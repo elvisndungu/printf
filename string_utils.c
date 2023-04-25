@@ -26,3 +26,4 @@ int _strlenc(const char *s)
         ;
     return (c);
 }
+
