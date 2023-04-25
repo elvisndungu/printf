@@ -9,20 +9,14 @@
  */
 int _printf(const char * const format, ...)
 {
-	typedef struct {
-	const char* id;
-	int (*f)();
-	} match_maker;
-
 	static const match_maker match[] = {
-			{"%s", printf_string}, {"%c", printf_char},
-			{"%%", printf_percent}, {"%d", print_integer},
+			{"%s", printf_string}, {"%c", printf_char}, {"%%", printf_percent}, {"%d", print_integer},
 			{"%i", print_integer},
 	};
-	static const int m_len = sizeof(match) / sizeof(match[0]);
 
+	int i = 0, len = 0, j, found = 0;
+	static const int m_len = sizeof(match) / sizeof(match[0]);
 	va_list args;
-	int i = 0, len = 0;
 
 	va_start(args, format);
 	if (format == NULL || (format[0] == '%' && format[1] == '\0'))
@@ -32,7 +26,6 @@ int _printf(const char * const format, ...)
 	{
 		if (format[i] == '%')
 		{
-			int j, found = 0;
 			for (j = 0; j < m_len; j++)
 			{
 				if (strncmp(match[j].id, format + i, strlen(match[j].id)) == 0)
@@ -57,7 +50,6 @@ int _printf(const char * const format, ...)
 			i++;
 		}
 	}
-
 	va_end(args);
 	return (len);
 }

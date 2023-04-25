@@ -5,6 +5,11 @@
 #include <stdio.h>
 #include <stdarg.h>
 
+typedef struct
+	{
+	const char* id;
+	int (*f)();
+	} match_maker;
 
 int _printf(const char *format, ...);
 
