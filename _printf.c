@@ -10,7 +10,7 @@
 int _printf(const char * const format, ...)
 {
     typedef struct {
-        const char* id;
+   const char* id;
         int (*f)();
     } match_maker;
 
