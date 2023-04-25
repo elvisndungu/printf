@@ -13,4 +13,8 @@ int printf_string(va_list args);
 int _putchar(char c);
 int printf_percent(void);
 
+
+int _strlen(char *s);
+int _strlenc(const char *s);
+
 #endif
