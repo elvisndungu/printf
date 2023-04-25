@@ -4,7 +4,8 @@
 
 
 
-void outputChar(const char* format, int len, int i) {
+void outputChar(const char * const format, int len, int i)
+{
     _putchar(format[i]);
     len++;
     i++;
@@ -45,10 +46,15 @@ int _printf(const char * const format, ...)
 				}
 			}
 			if (!found)
+			{
 				outputChar(format, len, i);
+			}
 		}
 		else
+		{
+			
 			outputChar(format, len, i);
+		}
 	}
 	va_end(args);
 	return (len);
