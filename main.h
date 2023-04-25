@@ -17,4 +17,7 @@ int printf_percent(void);
 int _strlen(char *s);
 int _strlenc(const char *s);
 
+int print_integer(va_list args);
+int print_positive_integer(int num);
+
 #endif
