@@ -7,26 +7,26 @@
  */
 int print_integer(va_list args)
 {
-    int num = va_arg(args, int);
-    int length = 0;
+	int num = va_arg(args, int);
+	int length = 0;
 
-    if (num == 0)
-    {
-        _putchar('0');
-        length = 1;
-    }
-    else if (num < 0)
-    {
-        _putchar('-');
-        length = print_positive_integer(-num);
-        length += 1;
-    }
-    else
-    {
-        length = print_positive_integer(num);
-    }
+	if (num == 0)
+	{
+		_putchar('0');
+		length = 1;
+	}
+	else if (num < 0)
+	{
+		_putchar('-');
+		length = print_positive_integer(-num);
+		length += 1;
+	}
+	else
+	{
+		length = print_positive_integer(num);
+	}
 
-    return length;
+	return length;
 }
 
 /**
@@ -37,15 +37,15 @@ int print_integer(va_list args)
  */
 int print_positive_integer(int num)
 {
-    int length = 0;
+	int length = 0;
 
-    if (num / 10)
-    {
-        length = print_positive_integer(num / 10);
-    }
+	if (num / 10)
+	{
+		length = print_positive_integer(num / 10);
+	}
 
-    _putchar((num % 10) + '0');
-    length += 1;
+	_putchar((num % 10) + '0');
+	length += 1;
 
-    return length;
+	return length;
 }
