@@ -2,6 +2,14 @@
 #include <stdlib.h>
 #include <string.h>
 
+
+
+void outputChar(const char* format, int len, int i) {
+    _putchar(format[i]);
+    len++;
+    i++;
+}
+
 /**
  * _printf - Mother Function Calls other functions.
  * @format: identifier to look for.
@@ -37,19 +45,13 @@ int _printf(const char * const format, ...)
 				}
 			}
 			if (!found)
-			{
-				_putchar(format[i]);
-				len++;
-				i++;
-			}
+				outputChar(format, len, i);
 		}
 		else
-		{
-			_putchar(format[i]);
-			len++;
-			i++;
-		}
+			outputChar(format, len, i);
 	}
 	va_end(args);
 	return (len);
 }
+
+
