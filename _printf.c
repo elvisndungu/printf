@@ -50,6 +50,7 @@ int _printf(const char *format, ...)
 		{
 			int match_idx = -1;
 			match_idx = m_identfy(format, match, m_len, i);
+
 			if (match_idx >= 0)
 			{
 				len += match[match_idx].f(args);
