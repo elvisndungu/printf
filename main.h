@@ -28,4 +28,9 @@ int printf_percent(void);
 int printf_integer(va_list args);
 int printf_positive_integer(int num);
 
+
+/* task 02 */
+int printf_binary(va_list val);
+
+
 #endif
