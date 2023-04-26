@@ -15,6 +15,7 @@ int print_integer(va_list args)
 		_putchar('0');
 		length = 1;
 	}
+
 	else if (num < 0)
 	{
 		_putchar('-');
