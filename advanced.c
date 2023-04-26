@@ -2,7 +2,7 @@
 /* whatttt*/
 
 /**
- * printf_bin - print a binary
+ * printf_binary - print a binary
  * @val: arguments.
  * Return: 1.
  */
@@ -35,7 +35,7 @@ int printf_binary(va_list val)
 }
 
 /**
- * printf_oct - prints an octal number.
+ * printf_octal - prints an octal number.
  * @val: arguments.
  * Return: counter.
  */
