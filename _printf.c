@@ -4,14 +4,14 @@
 
 
 /**
- * match_identifier - Matches an identifier in the format string
+ * m_identfy - Matches an identifier in the format string
  * @format: The format string to parse
- * @match: The array of match_maker structs to match against
+ * @match: The array of m_maker structs to match against
  * @m_len: The length of the match array
  * @i: The current index in the format string
  * Return: The index of the match in the match array, or -1 if not found
  */
-int match_identifier(const char *format, const match_maker *match, const int m_len, int i)
+int m_identfy(const char *format, const m_maker *match, const int m_len, int i)
 {
 	int j;
 	for (j = 0; j < m_len; j++)
@@ -29,7 +29,7 @@ int match_identifier(const char *format, const match_maker *match, const int m_l
  */
 int _printf(const char *format, ...)
 {
-	static const match_maker match[] = {
+	static const m_maker match[] = {
 			{"%s", printf_string}, {"%c", printf_char},{"%%", printf_percent},{"%d", printf_integer},
 			{"%i", printf_integer},
 	};
@@ -47,7 +47,7 @@ int _printf(const char *format, ...)
 		if (format[i] == '%')
 		{
 			int match_idx = -1;
-			match_idx = match_identifier(format, match, m_len, i);
+			match_idx = m_identfy(format, match, m_len, i);
 			if (match_idx >= 0)
 			{
 				len += match[match_idx].f(args);

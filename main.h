@@ -9,7 +9,7 @@ typedef struct
 	{
 	const char* id;
 	int (*f)();
-	} match_maker;
+	} m_maker;
 
 /* mother function */
 int _printf(const char *format, ...);
