@@ -19,7 +19,7 @@ int match_identifier(const char *format, const match_maker *match, const int m_l
 		if (strncmp(match[j].id, format + i, strlen(match[j].id)) == 0)
 			return j;
 	}
-	return -1;
+	return (-1);
 }
 
 /**
@@ -67,5 +67,5 @@ int _printf(const char *format, ...)
 	}
 	va_end(args);
 
-	return len;
+	return (len);
 }
