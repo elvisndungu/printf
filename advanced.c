@@ -1,4 +1,5 @@
 #include "main.h"
+/* whatttt*/
 
 /**
  * printf_bin - print a binary
