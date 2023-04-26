@@ -31,7 +31,7 @@ int printf_integer(va_list args)
 }
 
 /**
- * print_positive_integer - prints the absolute value of an integer to stdout
+ * printf_positive_integer - prints the absolute value of an integer to stdout
  * @num: the integer to print
  *
  * Return: the number of characters printed
