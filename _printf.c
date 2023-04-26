@@ -13,13 +13,13 @@
  */
 int match_identifier(const char *format, const match_maker *match, const int m_len, int i)
 {
-    int j;
-    for (j = 0; j < m_len; j++)
-    {
-        if (strncmp(match[j].id, format + i, strlen(match[j].id)) == 0)
-            return j;
-    }
-    return -1;
+	int j;
+	for (j = 0; j < m_len; j++)
+	{
+		if (strncmp(match[j].id, format + i, strlen(match[j].id)) == 0)
+			return j;
+	}
+	return -1;
 }
 
 /**
@@ -29,43 +29,43 @@ int match_identifier(const char *format, const match_maker *match, const int m_l
  */
 int _printf(const char *format, ...)
 {
-    static const match_maker match[] = {
-            {"%s", printf_string}, {"%c", printf_char},{"%%", printf_percent},{"%d", printf_integer},
-            {"%i", printf_integer},
-    };
-    static const int m_len = sizeof(match) / sizeof(match[0]);
-    va_list args;
-    int i = 0, len = 0;
+	static const match_maker match[] = {
+			{"%s", printf_string}, {"%c", printf_char},{"%%", printf_percent},{"%d", printf_integer},
+			{"%i", printf_integer},
+	};
+	static const int m_len = sizeof(match) / sizeof(match[0]);
+	va_list args;
+	int i = 0, len = 0;
 
-    if (format == NULL)
-        return (-1);
+	if (format == NULL)
+		return (-1);
 
-    va_start(args, format);
+	va_start(args, format);
 
-    while (format[i] != '\0')
-    {
-        if (format[i] == '%')
-        {
-            int match_idx = -1;
-            match_idx = match_identifier(format, match, m_len, i);
-            if (match_idx >= 0)
-            {
-                len += match[match_idx].f(args);
-                i += strlen(match[match_idx].id);
-            }
-            else
-            {
-                len += _putchar(format[i]);
-                i++;
-            }
-        }
-        else
-        {
-            len += _putchar(format[i]);
-            i++;
-        }
-    }
-    va_end(args);
+	while (format[i] != '\0')
+	{
+		if (format[i] == '%')
+		{
+			int match_idx = -1;
+			match_idx = match_identifier(format, match, m_len, i);
+			if (match_idx >= 0)
+			{
+				len += match[match_idx].f(args);
+				i += strlen(match[match_idx].id);
+			}
+			else
+			{
+				len += _putchar(format[i]);
+				i++;
+			}
+		}
+		else
+		{
+			len += _putchar(format[i]);
+			i++;
+		}
+	}
+	va_end(args);
 
-    return len;
+	return len;
 }
