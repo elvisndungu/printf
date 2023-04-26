@@ -6,6 +6,7 @@
  */
 int _strlen(char *s)
 {
+	/* betty patch */
 	int c;
 
 	for (c = 0; s[c] != 0; c++)
@@ -20,6 +21,7 @@ int _strlen(char *s)
  */
 int _strlenc(const char *s)
 {
+	/* betty patch */
 	int c;
 
 	for (c = 0; s[c] != 0; c++)

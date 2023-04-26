@@ -45,6 +45,7 @@ int print_positive_integer(int num)
 		length = print_positive_integer(num / 10);
 	}
 
+	/* betty patch */
 	_putchar((num % 10) + '0');
 	length += 1;
 

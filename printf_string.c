@@ -6,6 +6,7 @@
  */
 int printf_string(va_list args)
 {
+	/* betty patch */
 	char *s;
 	int i, len;
 

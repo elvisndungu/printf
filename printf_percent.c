@@ -7,7 +7,7 @@
 
 int printf_percent(void)
 {
-
+	/* betty patch */
 	_putchar('%');
 	return (1);
 }

@@ -9,8 +9,8 @@ int printf_char(va_list args)
 {
 	char s;
 
+	/* betty patch */
 	s = va_arg(args, int);
 	_putchar(s);
-
 	return (1);
 }
