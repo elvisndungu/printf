@@ -10,7 +10,7 @@
 
 typedef struct
 	{
-	const char* id;
+	const char *id;
 	int (*f)();
 	} m_maker;
 
