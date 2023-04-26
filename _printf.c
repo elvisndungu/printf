@@ -13,7 +13,8 @@
  */
 int match_identifier(const char *format, const match_maker *match, const int m_len, int i)
 {
-    for (int j = 0; j < m_len; j++)
+    int j;
+    for (j = 0; j < m_len; j++)
     {
         if (strncmp(match[j].id, format + i, strlen(match[j].id)) == 0)
             return j;
@@ -26,38 +27,45 @@ int match_identifier(const char *format, const match_maker *match, const int m_l
  * @format: identifier to look for.
  * Return: the length of the string.
  */
-int _printf(const char *const format, ...) {
+int _printf(const char *format, ...)
+{
     static const match_maker match[] = {
-            {"%s", printf_string},
-            {"%c", printf_char},
-            {"%%", printf_percent},
-            {"%d", printf_integer},
+            {"%s", printf_string}, {"%c", printf_char},{"%%", printf_percent},{"%d", printf_integer},
             {"%i", printf_integer},
     };
     static const int m_len = sizeof(match) / sizeof(match[0]);
-
     va_list args;
     int i = 0, len = 0;
 
-    va_start(args, format);
-    if (format == NULL || (format[0] == '%' && format[1] == '\0'))
+    if (format == NULL)
         return (-1);
 
-    while (format[i] != '\0') {
-        if (format[i] == '%') {
-            int match_idx = match_identifier(format, match, m_len, i);
-            if (match_idx != -1) {
+    va_start(args, format);
+
+    while (format[i] != '\0')
+    {
+        if (format[i] == '%')
+        {
+            int match_idx = -1;
+            match_idx = match_identifier(format, match, m_len, i);
+            if (match_idx >= 0)
+            {
                 len += match[match_idx].f(args);
                 i += strlen(match[match_idx].id);
-            } else {
+            }
+            else
+            {
                 len += _putchar(format[i]);
                 i++;
             }
-        } else {
+        }
+        else
+        {
             len += _putchar(format[i]);
             i++;
         }
     }
     va_end(args);
-    return (len);
+
+    return len;
 }
