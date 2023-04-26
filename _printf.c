@@ -1,6 +1,4 @@
 #include "main.h"
-#include <stdlib.h>
-#include <string.h>
 /**
  * m_identfy - Matches an identifier in the format string
  * @format: The format string to parse
