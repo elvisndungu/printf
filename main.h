@@ -11,18 +11,21 @@ typedef struct
 	int (*f)();
 	} match_maker;
 
+/* mother function */
 int _printf(const char *format, ...);
 
-int printf_char(va_list args);
-int printf_string(va_list args);
+/* util functions */
 int _putchar(char c);
-int printf_percent(void);
 
-
+/* task 00 */
 int _strlen(char *s);
 int _strlenc(const char *s);
+int printf_char(va_list args);
+int printf_string(va_list args);
+int printf_percent(void);
 
-int print_integer(va_list args);
-int print_positive_integer(int num);
+/* task 01 */
+int printf_integer(va_list args);
+int printf_positive_integer(int num);
 
 #endif

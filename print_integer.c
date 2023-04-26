@@ -1,11 +1,11 @@
 #include "main.h"
 /**
- * print_integer - prints an integer to stdout
+ * printf_integer - prints an integer to stdout
  * @args: the va_list containing the integer to print
  *
  * Return: the number of characters printed
  */
-int print_integer(va_list args)
+int printf_integer(va_list args)
 {
 	int num = va_arg(args, int);
 	int length = 0;
@@ -19,15 +19,15 @@ int print_integer(va_list args)
 	else if (num < 0)
 	{
 		_putchar('-');
-		length = print_positive_integer(-num);
+		length = printf_positive_integer(-num);
 		length += 1;
 	}
 	else
 	{
-		length = print_positive_integer(num);
+		length = printf_positive_integer(num);
 	}
 
-	return length;
+	return (length);
 }
 
 /**
@@ -36,18 +36,18 @@ int print_integer(va_list args)
  *
  * Return: the number of characters printed
  */
-int print_positive_integer(int num)
+int printf_positive_integer(int num)
 {
 	int length = 0;
 
 	if (num / 10)
 	{
-		length = print_positive_integer(num / 10);
+		length = printf_positive_integer(num / 10);
 	}
 
 	/* betty patch */
 	_putchar((num % 10) + '0');
 	length += 1;
 
-	return length;
+	return (length);
 }
