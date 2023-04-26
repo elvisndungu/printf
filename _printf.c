@@ -10,13 +10,13 @@
 int _printf(const char * const format, ...)
 {
 	static const match_maker match[] = {
-			{"%s", printf_string},{"%c", printf_char},{"%%", printf_percent},
-			{"%d", printf_integer},{"%i", printf_integer}
+			{"%s", printf_string}, {"%c", printf_char}, {"%%", printf_percent},
+			{"%d", printf_integer}, {"%i", printf_integer}
 	};
 	int len = 0;
 	va_list args;
-	va_start(args, format);
 
+	va_start(args, format);
 	if (format == NULL || (format[0] == '%' && format[1] == '\0'))
 		return (-1);
 
@@ -25,6 +25,7 @@ int _printf(const char * const format, ...)
 		if (format[i] == '%')
 		{
 			int found = 0;
+
 			for (int j = 0; j < sizeof(match) / sizeof(match[0]); j++)
 			{
 				if (strncmp(match[j].id, format + i, strlen(match[j].id)) == 0)
