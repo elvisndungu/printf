@@ -1,8 +1,6 @@
 #include "main.h"
 #include <stdlib.h>
 #include <string.h>
-
-
 /**
  * m_identfy - Matches an identifier in the format string
  * @format: The format string to parse
@@ -31,10 +29,10 @@ int m_identfy(const char *format, const m_maker *match, const int m_len, int i)
 int _printf(const char *format, ...)
 {
 	static const m_maker match[] = {
-{"%s", printf_string}, {"%c", printf_char},
-{"%%", printf_percent}, {"%d", printf_integer},
-{"%i", printf_integer}, {"%b", printf_binary},
-	};
+{"%s", printf_string}, {"%c", printf_char}, {"%%", printf_percent},
+{"%d", printf_integer},{"%i", printf_integer}, {"%b", printf_binary},
+{"%u", printf_unsigned}, {"%u", printf_octal},
+};
 	static const int m_len = sizeof(match) / sizeof(match[0]);
 	va_list args;
 	int i = 0, len = 0;

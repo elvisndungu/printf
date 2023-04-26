@@ -32,5 +32,8 @@ int printf_positive_integer(int num);
 /* task 02 */
 int printf_binary(va_list val);
 
+/* task 03 */
+int printf_unsigned(va_list args);
+int printf_octal(va_list val);
 
 #endif
