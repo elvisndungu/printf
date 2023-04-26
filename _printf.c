@@ -13,7 +13,6 @@ int _printf(const char * const format, ...)
 			{"%s", printf_string}, {"%c", printf_char}, {"%%", printf_percent}, {"%d", print_integer},
 			{"%i", print_integer},
 	};
-
 	int i = 0, len = 0, j, found = 0;
 	static const int m_len = sizeof(match) / sizeof(match[0]);
 	va_list args;
