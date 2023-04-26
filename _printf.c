@@ -10,8 +10,8 @@
 int _printf(const char * const format, ...)
 {
 	static const match_maker match[] = {
-			{"%s", printf_string}, {"%c", printf_char}, {"%%", printf_percent}, {"%d", print_integer},
-			{"%i", print_integer},
+			{"%s", printf_string}, {"%c", printf_char}, {"%%", printf_percent}, {"%d", printf_integer},
+			{"%i", printf_integer},
 	};
 	int i = 0, len = 0, j, found = 0;
 	static const int m_len = sizeof(match) / sizeof(match[0]);
