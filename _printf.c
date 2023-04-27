@@ -27,19 +27,19 @@ int m_identfy(const char *format, const m_maker *match, const int m_len, int i)
 int _printf(const char *format, ...)
 {
 static const m_maker match[] = {{"%s", printf_string}, {"%c", printf_char},
-{"%%", printf_percent},{"%d", printf_integer}, {"%i", printf_integer},
+{"%%", printf_percent}, {"%d", printf_integer}, {"%i", printf_integer},
 {"%b", printf_binary}, {"%u", printf_unsigned}, {"%u", printf_octal},
 {"%x", printf_hex},{"%X", printf_HEX}, {"%S", printf_special_string},
 {"%p", printf_pointer}, {"%r", printf_rev}, {"%R", ROT13}
 };
 	static const int m_len = sizeof(match) / sizeof(match[0]);
-	va_list args;
+	va_list argss;
 	int i = 0, len = 0;
 
 	if (format == NULL)
 		return (-1);
 
-	va_start(args, format);
+	va_start(argss, format);
 	while (format[i] != '\0')
 	{
 		if (format[i] == '%')
@@ -49,7 +49,7 @@ static const m_maker match[] = {{"%s", printf_string}, {"%c", printf_char},
 			match_idx = m_identfy(format, match, m_len, i);
 			if (match_idx >= 0)
 			{
-				len += match[match_idx].f(args);
+				len += match[match_idx].f(argss);
 				i += strlen(match[match_idx].id);
 			}
 			else
@@ -64,6 +64,6 @@ static const m_maker match[] = {{"%s", printf_string}, {"%c", printf_char},
 			i++;
 		}
 	}
-	va_end(args);
+	va_end(argss);
 	return (len);
 }
