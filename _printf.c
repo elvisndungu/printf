@@ -29,7 +29,7 @@ int _printf(const char *format, ...)
 static const m_maker match[] = {{"%s", printf_string}, {"%c", printf_char},
 {"%%", printf_percent}, {"%d", printf_integer}, {"%i", printf_integer},
 {"%b", printf_binary}, {"%u", printf_unsigned}, {"%u", printf_octal},
-{"%x", printf_hex},{"%X", printf_HEX}, {"%S", printf_special_string},
+{"%x", printf_hex}, {"%X", printf_HEX}, {"%S", printf_special_string},
 {"%p", printf_pointer}, {"%r", printf_rev}, {"%R", ROT13}
 };
 	static const int m_len = sizeof(match) / sizeof(match[0]);
