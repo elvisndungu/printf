@@ -1,6 +1,6 @@
 #include "main.h"
 /**
- * printf_rot13 - ROT13
+ * ROT13 - DOES THE ALGORITHM
  * @args: arguments.
  * Return: counter
  *
