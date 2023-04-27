@@ -35,7 +35,7 @@ int printf_HEX_two(unsigned int num)
 }
 
 /**
- * printf_hex_aux - prints an hexgecimal number.
+ * printf_hex_three - prints hex
  * @num: arguments.
  * Return: counter.
  */
