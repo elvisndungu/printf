@@ -1,5 +1,4 @@
 #include "main.h"
-
 /**
  * printf_HEX_two - prints hexadecimal.
  * @num: number to print.
@@ -7,32 +6,32 @@
  */
 int printf_HEX_two(unsigned int num)
 {
-    int i;
-    int *array;
-    int counter = 0;
-    unsigned int temp = num;
+	int i;
+	int *array;
+	int counter = 0;
+	unsigned int temp = num;
 
-    while (num / 16 != 0)
-    {
-        num /= 16;
-        counter++;
-    }
-    counter++;
-    array = malloc(counter * sizeof(int));
+	while (num / 16 != 0)
+	{
+		num /= 16;
+		counter++;
+	}
+	counter++;
+	array = malloc(counter * sizeof(int));
 
-    for (i = 0; i < counter; i++)
-    {
-        array[i] = temp % 16;
-        temp /= 16;
-    }
-    for (i = counter - 1; i >= 0; i--)
-    {
-        if (array[i] > 9)
-            array[i] = array[i] + 7;
-        _putchar(array[i] + '0');
-    }
-    free(array);
-    return (counter);
+	for (i = 0; i < counter; i++)
+	{
+		array[i] = temp % 16;
+		temp /= 16;
+	}
+	for (i = counter - 1; i >= 0; i--)
+	{
+		if (array[i] > 9)
+			array[i] = array[i] + 7;
+		_putchar(array[i] + '0');
+	}
+	free(array);
+	return (counter);
 }
 
 /**
@@ -42,32 +41,32 @@ int printf_HEX_two(unsigned int num)
  */
 int printf_hex_three(unsigned long int num)
 {
-    long int i;
-    long int *array;
-    long int counter = 0;
-    unsigned long int temp = num;
+	long int i;
+	long int *array;
+	long int counter = 0;
+	unsigned long int temp = num;
 
-    while (num / 16 != 0)
-    {
-        num /= 16;
-        counter++;
-    }
-    counter++;
-    array = malloc(counter * sizeof(long int));
+	while (num / 16 != 0)
+	{
+		num /= 16;
+		counter++;
+	}
+	counter++;
+	array = malloc(counter * sizeof(long int));
 
-    for (i = 0; i < counter; i++)
-    {
-        array[i] = temp % 16;
-        temp /= 16;
-    }
-    for (i = counter - 1; i >= 0; i--)
-    {
-        if (array[i] > 9)
-            array[i] = array[i] + 39;
-        _putchar(array[i] + '0');
-    }
-    free(array);
-    return (counter);
+	for (i = 0; i < counter; i++)
+	{
+		array[i] = temp % 16;
+		temp /= 16;
+	}
+	for (i = counter - 1; i >= 0; i--)
+	{
+		if (array[i] > 9)
+			array[i] = array[i] + 39;
+		_putchar(array[i] + '0');
+	}
+	free(array);
+	return (counter);
 }
 
 /**
@@ -77,35 +76,35 @@ int printf_hex_three(unsigned long int num)
  */
 int printf_special_string(va_list args)
 {
-    char *s;
-    int i, len = 0;
-    int cast;
+	char *s;
+	int i, len = 0;
+	int cast;
 
-    s = va_arg(args, char *);
-    if (s == NULL)
-        s = "(null)";
-    for (i = 0; s[i] != '\0'; i++)
-    {
-        if (s[i] < 32 || s[i] >= 127)
-        {
-            _putchar('\\');
-            _putchar('x');
-            len = len + 2;
-            cast = s[i];
-            if (cast < 16)
-            {
-                _putchar('0');
-                len++;
-            }
-            len = len + printf_HEX_two(cast);
-        }
-        else
-        {
-            _putchar(s[i]);
-            len++;
-        }
-    }
-    return (len);
+	s = va_arg(args, char *);
+	if (s == NULL)
+		s = "(null)";
+	for (i = 0; s[i] != '\0'; i++)
+	{
+		if (s[i] < 32 || s[i] >= 127)
+		{
+			_putchar('\\');
+			_putchar('x');
+			len = len + 2;
+			cast = s[i];
+			if (cast < 16)
+			{
+				_putchar('0');
+				len++;
+			}
+			len = len + printf_HEX_two(cast);
+		}
+		else
+		{
+			_putchar(s[i]);
+			len++;
+		}
+	}
+	return (len);
 }
 
 /**
@@ -116,17 +115,17 @@ int printf_special_string(va_list args)
 int printf_rev(va_list args)
 {
 
-    char *s = va_arg(args, char*);
-    int i;
-    int j = 0;
+	char *s = va_arg(args, char*);
+	int i;
+	int j = 0;
 
-    if (s == NULL)
-        s = "(null)";
-    while (s[j] != '\0')
-        j++;
-    for (i = j - 1; i >= 0; i--)
-        _putchar(s[i]);
-    return (j);
+	if (s == NULL)
+		s = "(null)";
+	while (s[j] != '\0')
+		j++;
+	for (i = j - 1; i >= 0; i--)
+		_putchar(s[i]);
+	return (j);
 }
 
 /**
@@ -136,26 +135,26 @@ int printf_rev(va_list args)
  */
 int printf_pointer(va_list args)
 {
-    void *p;
-    char *s = "(nil)";
-    long int a;
-    int b;
-    int i;
+	void *p;
+	char *s = "(nil)";
+	long int a;
+	int b;
+	int i;
 
-    p = va_arg(args, void*);
-    if (p == NULL)
-    {
-        for (i = 0; s[i] != '\0'; i++)
-        {
-            _putchar(s[i]);
-        }
-        return (i);
-    }
+	p = va_arg(args, void*);
+	if (p == NULL)
+	{
+		for (i = 0; s[i] != '\0'; i++)
+		{
+			_putchar(s[i]);
+		}
+		return (i);
+	}
 
-    a = (unsigned long int)p;
-    _putchar('0');
-    _putchar('x');
-    b = printf_hex_three(a);
+	a = (unsigned long int)p;
+	_putchar('0');
+	_putchar('x');
+	b = printf_hex_three(a);
 
-    return (b + 2);
+	return (b + 2);
 }
