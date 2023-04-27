@@ -29,8 +29,7 @@ int printf_percent(void);
 
 /* task 01 */
 int printf_integer(va_list args);
-int printf_positive_integer(int num);
-
+int printf_dec(va_list args)
 
 /* task 02 */
 int printf_binary(va_list val);
@@ -40,5 +39,21 @@ int printf_unsigned(va_list args);
 int printf_octal(va_list val);
 int printf_HEX(va_list val);
 int printf_hex(va_list val);
+
+/* task 04 */
+
+/* task 05 */
+
+/* task 06 */
+
+/* task 07 */
+
+/* task 08 */
+
+/* task 09 */
+
+/* task 10 */
+
+
 
 #endif
